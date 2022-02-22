@@ -1,5 +1,8 @@
 import express from "express"
 import cors from "cors"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 import indexRouter from "./src/routes/index.routes.js"
 import authRouter from "./src/routes/auth.routes.js"
@@ -11,6 +14,6 @@ app.use(cors())
 
 app.use([authRouter, indexRouter])
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Servidor On 👽')
 })
